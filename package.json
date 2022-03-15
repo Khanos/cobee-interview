@@ -1,0 +1,32 @@
+{
+  "name": "cobee-interview",
+  "version": "1.0.0",
+  "description": "This is code interview",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "NODE_ENV=development nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Khanos/cobee-interview.git"
+  },
+  "author": "@khanos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Khanos/cobee-interview/issues"
+  },
+  "homepage": "https://github.com/Khanos/cobee-interview#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "body-parser": "^1.19.2",
+    "cors": "^2.8.5",
+    "dotenv-safe": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "helmet": "^5.0.2"
+  }
+}
