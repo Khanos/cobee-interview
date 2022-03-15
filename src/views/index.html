@@ -7,34 +7,81 @@
 </head>
 <body>
   <style>
-
+    body {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #333;
+      background-color: #fff;
+    }
+    .app-container {
+      margin: 0 auto;
+      max-width: 960px;
+      padding: 0 15px;
+    }
+    .table-container {
+      margin-top: 20px;
+    }
+    .table-container table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #333;
+      background-color: #fff;
+    }
+    table thead tr th {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    table tbody tr td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
   </style>
-  <h1>This is a Cobee AWESON API</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>
-          URL
-        </th>
-        <th>
-          METHOD
-        </th>
-        <th>
-          HANDLER
-        </th>
-        <th>
-          ENTRYPOINT
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>/</td>
-        <td>get</td>
-        <td>./controller/main.js</td>
-        <td>index</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="app-container">
+    <h1>This is a Cobee AWESON API 💕</h1>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              URL
+            </th>
+            <th>
+              METHOD
+            </th>
+            <th>
+              HANDLER
+            </th>
+            <th>
+              ENTRYPOINT
+            </th>
+            <th>
+              RETURN
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>/</td>
+            <td>get</td>
+            <td>./controller/main.js</td>
+            <td>index</td>
+            <td>html</td>
+          </tr>
+          <tr>
+            <td>/api/v1/getjson</td>
+            <td>get</td>
+            <td>./controller/main.js</td>
+            <td>getjson</td>
+            <td>json</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </body>
 </html>

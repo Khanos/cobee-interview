@@ -13,7 +13,7 @@ const app = express();
 
 // Setters
 app.set('port', port);
-app.set('views', path.join(__dirname, 'src/views'))
+app.set('views', path.join(__dirname, './src/views'))
 app.engine('html', require('ejs').renderFile);
 
 // Uses
@@ -29,6 +29,10 @@ app.use('/api/v1', routes);
 
 app.get('/', (req, res) => {
   return res.render('index.html');
+})
+
+app.get('*', (req, res) => {
+  return res.redirect('/');
 })
 
 // Enable only on developement HTTP request logger middleware
