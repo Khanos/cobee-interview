@@ -1,0 +1,27 @@
+{
+  "name": "cobee-backend",
+  "version": "1.0.0",
+  "description": "This is a test for the code interview with cobee.io",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "NODE_ENV=development nodemon server.js"
+  },
+  "author": "@Khanos",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "dotenv-safe": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "helmet": "^5.0.2",
+    "html": "^1.0.0",
+    "morgan": "^1.10.0"
+  }
+}
