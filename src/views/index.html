@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- set google font -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+  <div class="app-container">
+    <h1>Hello this is Cobee's aweson backend 😍</h1>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>path</th>
+            <th>method</th>
+            <th>handler</th>
+            <th>action</th>
+            <th>return</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(user, index) in users">
+            <td>/</td>
+            <td>get</td>
+            <td>./controllers/main.js</td>
+            <td>index</td>
+            <td>text</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
