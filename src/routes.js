@@ -1,6 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
+// Middleware
+router.use((req, res, next) => {
+  if(!req.headers['postman-token']){
+    return res.redirect('/');
+  }
+  return next();
+})
+
 const routes = [
   {
     path: '/',

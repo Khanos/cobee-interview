@@ -18,7 +18,7 @@ app.set('views', path.join(__dirname, './src/views'));
 app.engine('html', require('ejs').renderFile);
 
 
-// Uses
+// Middleware
 app.use(helmet());
 app.use(cors());
 app.use(bodyParser.json());
