@@ -8,6 +8,15 @@ module.exports = {
       password: '123456'
     });
   },
+  postJson:(req, res) => {
+    const data = req.body || {};
+    res.json({
+      status: 'success',
+      data: data,
+      error: false,
+      message: 'Data received',
+    });
+  },
   getUserFromApi: async (req, res) => {
     const config = {
       method: 'get',

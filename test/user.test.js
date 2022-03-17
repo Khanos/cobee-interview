@@ -14,11 +14,20 @@ describe('Controllers', () => {
       expect(res.status).to.equal(200);
       expect(res.body).not.to.be.empty;
       expect(res.body).to.be.an('object');
-      console.log(res.body);
       expect(res.body).ownProperty('name');
       expect(res.body).ownProperty('age');
       expect(res.body).ownProperty('email');
       expect(res.body).ownProperty('password');
+    });
+    it('postJson: should return a json comming from the body request', async () => {
+      const res = await request(app).post('/api/v1/postjson').send({
+        name: 'John',
+        age: '25',
+        email: 'test@mail.com'
+      });
+      expect(res.status).to.equal(200);
+      expect(res.body).not.to.be.empty;
+
     });
     it('getUserFromApi: should return a json with user info from an api', async () => {
       // expect(true).to.equal(true);
@@ -28,7 +37,6 @@ describe('Controllers', () => {
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('status').equal('success');
       expect(res.body).to.have.property('data').to.be.an('array');
-      console.log(res.body.data[0]);
       expect(res.body).to.have.property('error').equal(false);
       expect(res.body).to.have.property('message').equal('User fetched successfully');
     });
@@ -40,7 +48,6 @@ describe('Controllers', () => {
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('status').equal('success');
       expect(res.body).to.have.property('data').to.be.an('array');
-      console.log(res.body.data[0]);
       expect(res.body).to.have.property('error').equal(false);
       expect(res.body).to.have.property('message').equal('User fetched successfully');
     });

@@ -3,10 +3,10 @@ const router = express.Router();
 
 // Middleware
 router.use((req, res, next) => {
-  if(!req.headers['postman-token']){
-    return res.redirect('/');
-  }
-  return next();
+  // if(!req.headers['postman-token']){
+  //   return res.redirect('/');
+  // }
+  next();
 })
 
 const routes = [
@@ -21,6 +21,12 @@ const routes = [
     method: 'get',
     handler: './controllers/user.js',
     action: 'getUser'
+  },
+  {
+    path: '/postjson',
+    method: 'post',
+    handler: './controllers/user.js',
+    action: 'postJson'
   },
   {
     path: '/getuserfromapi',
