@@ -12,6 +12,12 @@ const routes = [
     method: 'post',
     handler: './controllers/Conference.js',
     action: 'addConference'
+  },
+  {
+    path: '/getConferences',
+    method: 'get',
+    handler: './controllers/Conference.js',
+    action: 'getConferences'
   }
 ];
 

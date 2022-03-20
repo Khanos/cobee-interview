@@ -33,7 +33,6 @@ app.use('*', (req, res) => {
 
 // Lift the app
 app.listen(port, host, () => {
-  app.emit("appStarted");
   console.log(`Listening on http://${host}:${port}`);
 });
 

@@ -266,8 +266,8 @@
     "nodemon": "^2.0.15"
   },
   "scripts": {
-    "test": "mocha",
-    "start": "node server.js"
+    "serve": "NODE_ENV=development nodemon server.js",
+    "test": "nodemon --watch . --exec \"node_modules/mocha/bin/mocha --timeout 15000 ./test/**/*.test.js\""
   },
   "repository": {
     "type": "git",
