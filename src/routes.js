@@ -7,6 +7,12 @@ router.use((req, res, next) => {
 })
 
 const routes = [
+  {
+    path: '/addConference',
+    method: 'post',
+    handler: './controllers/Conference.js',
+    action: 'addConference'
+  }
 ];
 
 routes.forEach(route => {
