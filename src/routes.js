@@ -18,6 +18,12 @@ const routes = [
     method: 'get',
     handler: './controllers/Conference.js',
     action: 'getConferences'
+  },
+  {
+    path: '/getCongerenceByAuthor/:author',
+    method: 'get',
+    handler: './controllers/Conference.js',
+    action: 'getCongerenceByAuthor'
   }
 ];
 

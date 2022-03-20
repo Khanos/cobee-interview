@@ -23,12 +23,22 @@ module.exports = {
   },
   getConferences: (req, res) => {
     const conferences = ConferenceModel.getData();
-    console.log(conferences);
     return res.json({
       status: 'success',
       message: 'Conferences retrieved successfully',
       error: null,
       data: conferences
+    });
+  },
+  getCongerenceByAuthor: (req, res) => {
+    const author = req.params.author;
+    const conferences = ConferenceModel.getData();
+    const conferencesByAuthor = conferences.filter(conference => conference.speaker.indexOf(author) !== -1);
+    return res.json({
+      status: 'success',
+      message: 'Conferences retrieved successfully',
+      error: null,
+      data: conferencesByAuthor
     });
   }
 }
