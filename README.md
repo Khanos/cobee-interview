@@ -1,6 +1,6 @@
 <br/>
 <p align="center">
-  <h3 align="center">cobee-interview
+  <h3 align="center">NODEJS-BACKEND-TEMPLATE
 </h3>
 
   <p align="center">
