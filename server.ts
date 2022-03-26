@@ -1,11 +1,13 @@
-require('dotenv-safe').config();
-const port = process.env.PORT || 3000;
-const host = process.env.HOST || 'localhost';
-const apiVersion = process.env.API_VERSION || 'v1';
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const path = require('path');
-const express = require('express');
+require('dotenv-safe').config({
+  allowEmptyValues: true
+});
+const port: number = Number(process.env.PORT) || 3000;
+const host: string = process.env.HOST || 'localhost';
+const apiVersion: string = process.env.API_VERSION || 'v1';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import path from 'path';
+import express, { Request, Response } from 'express';
 const app = express();
 
 // Setters
@@ -23,11 +25,11 @@ app.use(express.static(path.join(__dirname, './public')));
 
 // Routes
 app.use(`/api/${apiVersion}/`, require('./src/routes'));
-app.use('/', (req, res) => {
+app.use('/', (req: Request, res: Response) => {
   res.render('index.html');
   return;
 });
-app.use('*', (req, res) => {
+app.use('*', (req: Request, res: Response) => {
   res.redirect('/');
 })
 

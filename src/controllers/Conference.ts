@@ -1,10 +1,11 @@
-const ConferenceModel = require('../models/conferences.js');
-const isValidConference = require('../utils/validateConference.js');
+import ConferenceModel from '../models/conferences';
+import { isValidConference } from '../utils/validateConference';
+import { Request, Response } from 'express';
 
-module.exports = {
-  addConference: (req, res) => {
+export default {
+  addConference: (req: Request, res: Response) => {
     const conference = req.body;
-    if(isValidConference(conference)) {
+    if (isValidConference(conference)) {
       ConferenceModel.addData(conference);
       return res.json({
         status: 'success',
@@ -21,7 +22,7 @@ module.exports = {
       });
     }
   },
-  getConferences: (req, res) => {
+  getConferences: (req: Request, res: Response) => {
     const conferences = ConferenceModel.getData();
     return res.json({
       status: 'success',
@@ -30,7 +31,7 @@ module.exports = {
       data: conferences
     });
   },
-  getCongerenceByAuthor: (req, res) => {
+  getCongerenceByAuthor: (req: Request, res: Response) => {
     const author = req.params.author;
     const conferences = ConferenceModel.getData();
     const conferencesByAuthor = conferences.filter(conference => conference.speaker.indexOf(author) !== -1);
