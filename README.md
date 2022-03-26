@@ -4,35 +4,40 @@
 </h3>
 
   <p align="center">
-    This is my personal trials for the cobee technical interview
+    This is my personal template for Nodejs backend projects
     <br/>
     <br/>
-    <a href="https://github.com/Khanos/cobee-interview"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Khanos/nodejs-backend-template"><strong>Explore the docs »</strong></a>
     <br/>
     <br/>
-    <a href="https://github.com/Khanos/cobee-interview">View Demo</a>
+    <a href="https://github.com/Khanos/nodejs-backend-template">View Demo</a>
     .
-    <a href="https://github.com/Khanos/cobee-interview/issues">Report Bug</a>
+    <a href="https://github.com/Khanos/nodejs-backend-template/issues">Report Bug</a>
     .
-    <a href="https://github.com/Khanos/cobee-interview/issues">Request Feature</a>
+    <a href="https://github.com/Khanos/nodejs-backend-template/issues">Request Feature</a>
   </p>
 </p>
 
-![Downloads](https://img.shields.io/github/downloads/Khanos/cobee-interview/total) ![Contributors](https://img.shields.io/github/contributors/Khanos/cobee-interview?color=dark-green) ![Issues](https://img.shields.io/github/issues/Khanos/cobee-interview) ![License](https://img.shields.io/github/license/Khanos/cobee-interview) 
+![Downloads](https://img.shields.io/github/downloads/Khanos/nodejs-backend-template/total) ![Contributors](https://img.shields.io/github/contributors/Khanos/nodejs-backend-template?color=dark-green) ![Issues](https://img.shields.io/github/issues/Khanos/nodejs-backend-template) ![License](https://img.shields.io/github/license/Khanos/nodejs-backend-template)
 
-## About The Challenge
+## About The Template
 
-Ok, it's just two guy doing the interview. Pretty simple and straightforward. You need to share your screen and solve the challenge in 2 hrs.
+It's a basic Model View Controller template as base for backend server using Nodejs (dhaa).
 
-What you need:
+## The Tech
 
-* IDE
-* A project with NodeJS, Typescript (optional) and some framework http (express, hapi...)
-* Create an endpoint that can receive JSON through POST and return with that JSON
+* Nodejs
+* Express
+* Typescript
+* Mocha/chai/supertest
 
-## The Challenge
+## How to use
 
-Design an API to help a team of cobee workers to register conferencist for an upcoming 2 days event.
+> git clone git@github.com:Khanos/nodejs-backend-template.git
+
+> npm install
+
+> npm run serve
 
 
 
