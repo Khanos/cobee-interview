@@ -8,21 +8,21 @@ const Conference_1 = __importDefault(require("./controllers/Conference"));
 class IndexRouter {
     constructor() {
         this.router = (0, express_1.Router)();
+        this.initMiddleware();
+        this.initRoutes();
     }
-    constructure() {
-        this.config();
-        this.routes();
-    }
-    config() {
+    initMiddleware() {
         // Middleware
         this.router.use((req, res, next) => {
             next();
         });
     }
-    routes() {
+    initRoutes() {
+        // Conference routes
         this.router.get('/getConferences', Conference_1.default.getConferences);
         this.router.get('/getCongerenceByAuthor/:author', Conference_1.default.getCongerenceByAuthor);
         this.router.post('/addConference', Conference_1.default.addConference);
+        this.router.post('/addMultipleConferences', Conference_1.default.addMultipleConferences);
     }
 }
 const indexRoutes = new IndexRouter();
