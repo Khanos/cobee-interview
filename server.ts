@@ -1,41 +1,56 @@
-require('dotenv-safe').config({
-  allowEmptyValues: true
-});
-const port: number = Number(process.env.PORT) || 3000;
-const host: string = process.env.HOST || 'localhost';
-const apiVersion: string = process.env.API_VERSION || 'v1';
+import express, { Request, Response } from 'express';
+import ejs from 'ejs';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import path from 'path';
-import express, { Request, Response } from 'express';
-const app = express();
+import helmet from 'helmet';
+import morgan from 'morgan';
+import dotenv from 'dotenv-safe';
+import indexRoutes from './src/routes';
+class Server {
+  public app: express.Application;
+  private port: number
+  private host: string
+  private apiVersion: string
+  constructor() {
+    dotenv.config({
+      allowEmptyValues: true
+    });
+    this.port = Number(process.env.PORT) || 3000;
+    this.host = process.env.HOST || 'localhost';
+    this.apiVersion = process.env.API_VERSION || 'v1';
+    this.app = express();
+    this.config();
+    this.routes();
+  }
+  config() {
+    this.app.set('port', this.port);
+    this.app.set('host', this.host);
+    this.app.set('views', path.join(__dirname, './src/views'));
+    this.app.engine('html', ejs.renderFile);
+    this.app.use(cors());
+    this.app.use(helmet());
+    this.app.use(morgan('dev'));
+    this.app.use(bodyParser.json());
+    this.app.use(bodyParser.urlencoded({ extended: true }));
+    this.app.use(express.static(path.join(__dirname, './public')));
+  }
+  routes() {
+    this.app.use(`/api/${this.apiVersion}/`, indexRoutes);
+    this.app.use('/', (req: Request, res: Response) => {
+      res.render('index.html');
+      return;
+    });
+    this.app.use('*', (req: Request, res: Response) => {
+      res.redirect('/');
+    })
+  }
+  start() {
+    this.app.listen(this.port, this.host, () => {
+      console.log(`Listening on http://${this.host}:${this.port}`);
+    });
+  }
+}
 
-// Setters
-app.set('port', port);
-app.set('host', host);
-app.set('views', path.join(__dirname, './src/views'));
-app.engine('html', require('ejs').renderFile);
-
-
-// Middleware
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, './public')));
-
-// Routes
-app.use(`/api/${apiVersion}/`, require('./src/routes'));
-app.use('/', (req: Request, res: Response) => {
-  res.render('index.html');
-  return;
-});
-app.use('*', (req: Request, res: Response) => {
-  res.redirect('/');
-})
-
-// Lift the app
-app.listen(port, host, () => {
-  console.log(`Listening on http://${host}:${port}`);
-});
-
-module.exports = app;
+const server = new Server();
+server.start();

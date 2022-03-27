@@ -1,14 +1,26 @@
-import express from 'express';
+import { Router, Request, Response } from 'express';
 import ConferenceController from './controllers/Conference';
-const router = express.Router();
 
-// Middleware
-router.use((req, res, next) => {
-  next();
-})
+class IndexRouter {
+  router: Router = Router();
+  constructure() {
+    this.config();
+    this.routes();
+  }
+  config() {
+    // Middleware
+    this.router.use((req: Request, res: Response, next) => {
+      next();
+    })
+  }
+  routes() {
+    this.router.get('/getConferences', ConferenceController.getConferences);
+    this.router.get('/getCongerenceByAuthor/:author', ConferenceController.getCongerenceByAuthor);
+    this.router.post('/addConference', ConferenceController.addConference);
+  }
 
-router.get('/getConferences', ConferenceController.getConferences);
-router.get('/getCongerenceByAuthor/:author', ConferenceController.getCongerenceByAuthor);
-router.post('/addConference', ConferenceController.addConference);
+}
 
-module.exports = router;
+const indexRoutes = new IndexRouter();
+
+export default indexRoutes.router;
